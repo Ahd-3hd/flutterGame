@@ -22,9 +22,11 @@ class Player {
   }
 
   void update(double t, Offset coords) {
-    double stepDistance = -speed * t;
+    double stepDistance = -speed * t * 5;
     Offset toPos = mygame.player.playerRect.center - coords;
     Offset stepToPos = Offset.fromDirection(toPos.direction, stepDistance);
-    playerRect = playerRect.shift(stepToPos);
+    if (stepDistance <= toPos.distance - mygame.tileSize * 1.5) {
+      playerRect = playerRect.shift(stepToPos);
+    }
   }
 }

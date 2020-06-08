@@ -9,13 +9,15 @@ class MyGame extends Game with TapDetector {
   Size screenSize;
   double tileSize;
   Player player;
-  Offset coords = Offset(0, 0);
+  Offset coords;
   MyGame() {
     initialize();
   }
 
   void initialize() async {
     resize(await Flame.util.initialDimensions());
+    coords = Offset(screenSize.width / 2 - tileSize / 2,
+        screenSize.height / 2 - tileSize / 2);
     player = Player(this, coords.dx, coords.dy);
   }
 
