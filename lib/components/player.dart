@@ -8,12 +8,15 @@ class Player {
   int currentHealth;
   Rect playerRect;
   bool isDead = false;
+  double posX;
+  double posY;
 
   Player(this.gameController) {
     maxHealth = currentHealth = 300;
     final size = gameController.tileSize * 1.5;
-    playerRect = Rect.fromLTWH(gameController.screenSize.width / 2 - size / 2,
-        gameController.screenSize.height / 2 - size / 2, size, size);
+    posX = gameController.screenSize.width / 2 - size / 2;
+    posY = gameController.screenSize.height / 2 - size / 2;
+    playerRect = Rect.fromLTWH(posX, posY, size, size);
   }
 
   void render(Canvas c) {

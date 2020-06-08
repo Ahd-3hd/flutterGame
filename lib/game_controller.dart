@@ -65,7 +65,7 @@ class GameController extends Game {
       startText.update(t);
       highscoreText.update(t);
     } else if (state == MyState.playing) {
-      enemySpawner.update(t);
+      // enemySpawner.update(t);
       enemies.forEach((Enemy enemy) => enemy.update(t));
       enemies.removeWhere((Enemy enemy) => enemy.isDead);
       player.update(t);
