@@ -1,20 +1,15 @@
+import 'package:flame/game.dart';
 import 'package:flame/util.dart';
-import 'package:flutgame/game_controller.dart';
-import 'package:flutter/gestures.dart';
+import 'package:flutgame/my_game.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
   Util flameUtil = Util();
   await flameUtil.fullScreen();
-  await flameUtil.setOrientation(DeviceOrientation.portraitUp);
-
-  SharedPreferences storage = await SharedPreferences.getInstance();
-  GameController gameController = GameController(storage);
-  runApp(gameController.widget);
-  TapGestureRecognizer tapper = TapGestureRecognizer();
-  tapper.onTapDown = gameController.onTapDown;
-  flameUtil.addGestureRecognizer(tapper);
+  await flameUtil.setOrientation(DeviceOrientation.landscapeRight);
+  Game mygame = MyGame();
+  runApp(mygame.widget);
 }
