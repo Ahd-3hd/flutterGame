@@ -43,10 +43,4 @@ class MyGame extends Game with TapDetector {
   void onTapDown(TapDownDetails details) {
     coords = details.globalPosition;
   }
-
-  @override
-  void onTapUp(TapUpDetails details) {
-    print(
-        "Player tap up on ${details.globalPosition.dx} - ${details.globalPosition.dy}");
-  }
 }

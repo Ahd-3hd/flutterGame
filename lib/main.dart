@@ -11,5 +11,6 @@ void main() async {
   await flameUtil.fullScreen();
   await flameUtil.setOrientation(DeviceOrientation.landscapeRight);
   Game mygame = MyGame();
+
   runApp(mygame.widget);
 }
